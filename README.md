@@ -1,3 +1,3 @@
 # Python Alien
 
-This application is a space invaders like game written in Python.
+ A space-invaders-like game written totally in Python.
