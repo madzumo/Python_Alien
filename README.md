@@ -1,3 +1,3 @@
 # Python Aliens
 
- A classic space invaders game written in Python.
+ A classic space invaders game written in Python. Coming soon.
