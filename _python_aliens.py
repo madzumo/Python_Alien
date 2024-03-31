@@ -3,6 +3,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
+from alien import Alien
 
 
 class AlienInvasion:
@@ -20,9 +21,12 @@ class AlienInvasion:
         else:
             self.screen = pygame.display.set_mode((self.settings.screen_width,
                                                    self.settings.screen_height))
-        pygame.display.set_caption("Alien Invasion")
+        pygame.display.set_caption(self.settings.game_title)
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
+        self.aliens = pygame.sprite.Group()
+
+        self._create_fleet()
 
     def run_game(self):
         """main game loop"""
@@ -30,6 +34,7 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self.bullets.update()
+            self._update_bullets()
             self._update_screen()
             self.clock.tick(60)
 
@@ -64,15 +69,30 @@ class AlienInvasion:
         # draw the screen with items
         self.screen.fill(self.settings.bg_color)
         for bullet in self.bullets.sprites():
-            bullet.draw.bullet()
+            bullet.draw_bullet()
         self.ship.blitme()
+        self.aliens.draw(self.screen)
         # make the most recently drawn screen visible
         pygame.display.flip()
 
     def _fire_bullet(self):
         """create a new bullet and add it to the bullets group"""
-        new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+        if len(self.bullets) < self.settings.bullets_allowed:
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)
+
+    def _update_bullets(self):
+        # get rid of bullets off-screen
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+        if self.settings.debug_app:
+            print(len(self.bullets))
+
+    def _create_fleet(self):
+        """create the fleet of aliens"""
+        alien = Alien(self)
+        self.aliens.add(alien)
 
 
 if __name__ == '__main__':
