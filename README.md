@@ -1,3 +1,3 @@
-# Python Aliens
+# Python Invasion
 
- A classic space invaders game written in Python. Coming soon.
+ A classic space invaders like shooter game written 100% in Python.
