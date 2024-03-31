@@ -8,5 +8,5 @@
 
 * Left and Right arrow keys to move your ship.
 * Space Bar to fire.
-* Avoid the alien invasion and their attacks.
-* Get the high score!
+* Avoid attacks from the alien invasion.
+* Get the highest score!
