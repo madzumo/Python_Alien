@@ -15,13 +15,7 @@ class Ship:
         # call rect to access the ship surface rect attribute to later place the ship
         self.rect = self.image.get_rect()
 
-        # start each new ship at the bottom center of the screen
-        self.rect.midbottom = self.screen_rect.midbottom
-        self.x = float(self.rect.x)
-
-        # movement flag. start with a stationary ship
-        self.moving_right = False
-        self.moving_left = False
+        self.center_ship()
 
     def blitme(self):
         """draw ship at its current location"""
@@ -35,3 +29,12 @@ class Ship:
             self.x -= self.settings.ship_speed
 
         self.rect.x = self.x
+
+    def center_ship(self):
+        """center ship on the bottom center of the screen"""
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
+
+        # movement flag. start with a stationary ship
+        self.moving_right = False
+        self.moving_left = False
