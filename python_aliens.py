@@ -1,4 +1,5 @@
 import sys
+import time
 from time import sleep
 
 import pygame
@@ -10,7 +11,7 @@ from alien import Alien
 from game_stats import GameStats
 from game_button import GameButton
 from scoreboard import Scoreboard
-
+from game_sounds import GameSounds
 
 class AlienInvasion:
     """Main class to manage assets"""
@@ -32,6 +33,7 @@ class AlienInvasion:
         self.stats = GameStats(self)
         self.ship = Ship(self)
         self.sb = Scoreboard(self)
+        self.sounds = GameSounds(self)
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
 
@@ -215,6 +217,7 @@ class AlienInvasion:
         """starts a new game when the player clicks play"""
         button_clicked = self.play_button.rect.collidepoint(mouse_position)
         if button_clicked and not self.game_active:
+            self.sounds.play_main_song()
             self.stats.reset_stats()
             self.sb.prep_score()
             self.sb.prep_level()
@@ -233,3 +236,5 @@ class AlienInvasion:
 if __name__ == '__main__':
     ai = AlienInvasion()
     ai.run_game()
+
+    # python_aliens.py --onefile --noconsole
