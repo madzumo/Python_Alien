@@ -1,10 +1,12 @@
 import pygame
+from pygame.sprite import Sprite
 
 
-class Ship:
+class Ship(Sprite):
     """class to manage the ship"""
 
     def __init__(self, ai_game):
+        super().__init__()
         # assign game screen to attribute and get full rectangle size of game
         self.screen = ai_game.screen
         self.screen_rect = ai_game.screen.get_rect()
