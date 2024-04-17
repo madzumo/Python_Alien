@@ -2,7 +2,7 @@ class Settings:
     def __init__(self):
         # global settings
         self.debug_app = False
-        self.game_title = 'Python Aliens'
+        self.game_title = 'Python Aliens - by Jonathan M.'
 
         # screen settings
         self.screen_width = 1200
@@ -36,7 +36,7 @@ class Settings:
 
     def initialize_dynamic_settings(self):
         """initialize settings that change throughout the game"""
-        self.ship_speed = 3
+        self.ship_speed = 5
         self.bullet_speed = 5
         self.alien_speed = 2
         self.fleet_direction = 1

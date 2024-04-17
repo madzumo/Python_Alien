@@ -2,6 +2,8 @@
 
  A classic space invaders like shooter game written 100% in Python.
 
+![game](images/game.png)
+
 ## Download
 
 [Python Aliens - Windows](https://github.com/madzumo/python-aliens/releases/download/1.0/python_aliens.zip)

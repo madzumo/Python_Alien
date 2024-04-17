@@ -13,6 +13,7 @@ from game_button import GameButton
 from scoreboard import Scoreboard
 from game_sounds import GameSounds
 
+
 class AlienInvasion:
     """Main class to manage assets"""
 
