@@ -1,6 +1,6 @@
 # Python Aliens
 
- A classic space invaders like shooter game written 100% in Python.
+ A classic space invaders shooter game written 100% in Python. The download is a self contained folder to play the game on Windows.
 
 ![game](images/game.png)
 
